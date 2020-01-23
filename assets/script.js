@@ -19,7 +19,7 @@ function gridTemplateArea(column, row) {
         }
     return string;
 }
-
+let tileArray = [];
 function createGrid(column, row) {
     puzzleGrid.style.gridTemplateColumns = `repeat(${column}, 1fr)`;
     puzzleGrid.style.gridTemplateRows = `repeat(${row}, 1fr)`;
@@ -30,7 +30,9 @@ function createGrid(column, row) {
             (r===row && c===column) ? type='div' : type = 'button';
             let tile = document.createElement(type);
             tile.setAttribute('style', `--area:${gridArea(c,r)}`);
+            tile.setAttribute('id', `${gridArea(c,r)}`)
             tile.addEventListener('click', moveTile);
+            tileArray.push(tile.id);
             puzzleGrid.append(tile);
         }
     }
@@ -43,21 +45,41 @@ let moveCount = 0;
 function moveTile() { 
     let emptyTileArea = emptyTile.style.getPropertyValue('--area')
     let thisTileArea = this.style.getPropertyValue('--area');
-    console.log(thisTileArea);
-    console.log(emptyTileArea);
     this.style.setProperty('--area', emptyTileArea);
     emptyTile.style.setProperty('--area', thisTileArea);
     moveCount++;
     moveCounter.innerHTML = moveCount;
+    unlockTiles(thisTileArea);
 }
 
-function unlockTiles() {
+function unlockTiles(emptyTile) {
     let moveableTiles = [];
-
+    let emptyRow = emptyTile.slice(0,1);
+    let y = rowArr.indexOf(emptyRow) +1;
+    let x = parseInt(emptyTile.slice(1,2));
+    console.log(y + ',' + x);
+    console.log(gridArea(x,y));
+    moveableTiles.push(gridArea(x+1,y));
+    moveableTiles.push(gridArea(x-1,y));
+    moveableTiles.push(gridArea(x,y+1));
+    moveableTiles.push(gridArea(x,y-1));
+    console.log('moveable = ' + findTiles(moveableTiles[1]));
+    console.log(moveableTiles);
     return moveableTiles;
 }
 
-function colourTiles(column, row, num){
+function findTiles(a) {
+    console.log(tileArray);
+    let newArray = tileArray.prototype.filter(tile =>{
+        tile.contains(a);
+    })
+    console.log(newArray);
+    return newArray;
+}
+
+function colourTiles(){
   
 }
+
+console.log(tileArray);
 
