@@ -59,20 +59,20 @@ function unlockTiles(emptyTile) {
     let x = parseInt(emptyTile.slice(1,2));
     console.log(y + ',' + x);
     console.log(gridArea(x,y));
-    moveableTiles.push(gridArea(x+1,y));
-    moveableTiles.push(gridArea(x-1,y));
-    moveableTiles.push(gridArea(x,y+1));
-    moveableTiles.push(gridArea(x,y-1));
-    console.log('moveable = ' + findTiles(moveableTiles[1]));
+    // moveableTiles.push(gridArea(x+1,y));
+    // moveableTiles.push(gridArea(x-1,y));
+    // moveableTiles.push(gridArea(x,y+1));
+    // moveableTiles.push(gridArea(x,y-1));
+    console.log('moveable = ' + findTiles(x,y));
     console.log(moveableTiles);
     return moveableTiles;
 }
 
-function findTiles(a) {
+function findTiles(x,y) {
     console.log(tileArray);
-    let newArray = tileArray.prototype.filter(tile =>{
-        tile.contains(a);
-    })
+    let newArray = tileArray.filter(tile => tile.includes(gridArea(x,y-1)));
+
+    // let newArray = tileArray.filter(tile => tile.includes('a'));
     console.log(newArray);
     return newArray;
 }
