@@ -2,6 +2,7 @@ html,
 body {
     height: 100vh;
     width: 100vh;
+    padding: 10px;
 }
 
 #container {
@@ -13,7 +14,6 @@ body {
 }
 
 #puzzle-grid {
-    margin: 10vh;
     display: grid;
     width:min-content;
     height: min-content;

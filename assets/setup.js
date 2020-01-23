@@ -1,13 +1,11 @@
-
 const tiles = document.querySelectorAll('#puzzle-grid button');
 
 tiles.forEach(tile => tile.addEventListener('click', setUp))
 
-let coloredTiles = [];
-
+let colouredTiles = [];
 function setUp() {
     let thisTileArea = this.style.getPropertyValue('--area');
     this.style.setProperty('background', 'black');
-    coloredTiles.push(thisTileArea);
-    console.table(coloredTiles);
+    colouredTiles.push(thisTileArea);    
+    console.log(colouredTiles);
 }
