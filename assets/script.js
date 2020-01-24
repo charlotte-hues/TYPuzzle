@@ -6,7 +6,10 @@ const elevenArr = ['b2','b3','b4','c4','d4','d3','d2','c2','c1','c5','c3'];
 const typoArr = ['b1','b2','b4', 'b3','b5','b6','b7','g1','g2','g3','g4','g5','g6','g7','d4','e4'];
 let column = 7;
 let row = 9;
-        
+
+const nineButton = document.querySelector('#nine');
+const tenButton = document.querySelector('#ten');
+
 const puzzleGrid = document.querySelector('#puzzle-grid');
 const moveCounter = document.querySelector('h3');
 const gridArea = (column, row) => {return rowArr[row-1] + column;}
@@ -91,8 +94,15 @@ function unlockTiles(emptyTile) {
     return tileArr;
 }
 
+
+
 function colourTiles(type) {
+    let tiles = document.querySelectorAll('#puzzle-grid button');
+    tiles.forEach(tile => tile.classList.remove('coloured'))
     for(let i=0; i<type.length; i++) {
     document.querySelector(`.${type[i]}`).classList.add('coloured');
     }
 }
+
+nineButton.addEventListener('click', colourTiles);
+tenButton.addEventListener('click', colourTiles);
