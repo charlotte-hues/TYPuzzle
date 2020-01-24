@@ -1,28 +1,96 @@
 html,
 body {
     height: 100vh;
-    width: 100vh;
-    padding: 10px;
+    width: 100vw;
+}
+
+#page-container {
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100vw;
+    background-color: rgb(190, 190, 190);
+    height: 8vh;
+    margin-bottom: 2vh;
 }
 
 #container {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
-    width: 100vh;
+    width: 100vw; 
+}
+
+#buttons-container {
+    display: flex;
+    width: 60vw;
+    justify-content: space-around;
+}
+
+h3 {
+    text-align: center;
 }
 
 #puzzle-grid {
     display: grid;
     width:min-content;
     height: min-content;
+    padding: 2px;
+    background-color:  rgb(190, 190, 190);
+    border: 4px solid rgb(190, 190, 190);
 }
 
 button {
-    height: 80px;
-    width: 80px;
+    height: 110px;
+    max-height: 8vh;
+    width: 110px;
+    max-width: 8vh;
+    background-color: white;
     cursor: pointer;
     grid-area: var(--area, auto);
     align-items: center;
+    border: 2px solid rgb(190, 190, 190);
+}
+
+
+
+button:hover {
+    background-color: white;
+}
+
+.above:hover {
+    box-shadow: 0 -2px red;
+}
+
+.right:hover {
+    box-shadow: 2px 0 red;
+}
+
+.below:hover {
+    box-shadow: 0 2px red;
+}
+
+.left:hover {
+    box-shadow: -2px 0 red;
+}
+
+button:disabled {
+    cursor: auto;
+}
+
+.coloured {
+    background-color: black;
+}
+
+.coloured:hover {
+    background-color: black;
 }
