@@ -3,7 +3,9 @@ const eightArr = ['b2','b3','b4','c4','d4','d3','d2','c2',]
 const nineArr = ['b2','b3','b4','c4','d4','d3','d2','c2', 'c3',];
 const tenArr = ['b2','b3','b4','c4','d4','d3','d2','c2','c1','c5'];
 const elevenArr = ['b2','b3','b4','c4','d4','d3','d2','c2','c1','c5','c3'];
-const typoArr = ['b1','b2','b4','b5','b6','b7','g1','g2','g3','g4','g5','g6','g7','d4','e4'];
+const typoArr = ['b1','b2','b4', 'b3','b5','b6','b7','g1','g2','g3','g4','g5','g6','g7','d4','e4'];
+let column = 7;
+let row = 9;
         
 const puzzleGrid = document.querySelector('#puzzle-grid');
 const moveCounter = document.querySelector('h3');
@@ -19,7 +21,7 @@ function gridTemplateArea(column, row) {
         }
     return string;
 }
-let tileArray = [];
+
 function createGrid(column, row) {
     puzzleGrid.style.gridTemplateColumns = `repeat(${column}, 1fr)`;
     puzzleGrid.style.gridTemplateRows = `repeat(${row}, 1fr)`;
@@ -30,22 +32,31 @@ function createGrid(column, row) {
             (r===row && c===column) ? type='div' : type = 'button';
             let tile = document.createElement(type);
             tile.setAttribute('style', `--area:${gridArea(c,r)}`);
-            tile.setAttribute('id', `${gridArea(c,r)}`)
+            tile.setAttribute('class', `${gridArea(c,r)}`)
             tile.addEventListener('click', moveTile);
-            tileArray.push(tile.id);
+            tile.disabled = true;
             puzzleGrid.append(tile);
         }
     }
+    colourTiles(typoArr);
+    unlockTiles(gridArea(column, row));
 }
 
-createGrid(7,9);
+createGrid(column,row);
 const emptyTile = document.querySelector('#puzzle-grid div');
+const tiles = document.querySelectorAll('#puzzle-grid button');
 let moveCount = 0;
 
 function moveTile() { 
-    let emptyTileArea = emptyTile.style.getPropertyValue('--area')
+    tiles.forEach(tile => {
+        tile.disabled = true;
+        tile.classList.remove('above', 'right', 'left', 'below');
+    });
+    let emptyTileArea = emptyTile.style.getPropertyValue('--area');
     let thisTileArea = this.style.getPropertyValue('--area');
     this.style.setProperty('--area', emptyTileArea);
+    this.classList.remove(thisTileArea);
+    this.classList.add(emptyTileArea);
     emptyTile.style.setProperty('--area', thisTileArea);
     moveCount++;
     moveCounter.innerHTML = moveCount;
@@ -53,33 +64,35 @@ function moveTile() {
 }
 
 function unlockTiles(emptyTile) {
-    let moveableTiles = [];
+    let tileArr = [];
+    let positionArr = [];
     let emptyRow = emptyTile.slice(0,1);
-    let y = rowArr.indexOf(emptyRow) +1;
-    let x = parseInt(emptyTile.slice(1,2));
-    console.log(y + ',' + x);
-    console.log(gridArea(x,y));
-    // moveableTiles.push(gridArea(x+1,y));
-    // moveableTiles.push(gridArea(x-1,y));
-    // moveableTiles.push(gridArea(x,y+1));
-    // moveableTiles.push(gridArea(x,y-1));
-    console.log('moveable = ' + findTiles(x,y));
-    console.log(moveableTiles);
-    return moveableTiles;
+    let r = rowArr.indexOf(emptyRow) +1;
+    let c = parseInt(emptyTile.slice(1,2));
+    console.log(c);
+    if(c>1) {
+        tileArr.push(gridArea(c-1,r));
+        positionArr.push('right')};
+    if(c<column) {
+        tileArr.push(gridArea(c+1,r));
+        positionArr.push('left')};
+    if(r<row) {
+        tileArr.push(gridArea(c,r+1));
+        positionArr.push('above')};
+    if(r>1) {
+        tileArr.push(gridArea(c,r-1));
+        positionArr.push('below')};
+
+    for(let i=0; i<tileArr.length; i++) {
+        console.log(tileArr[i]);
+        document.querySelector(`.${tileArr[i]}`).disabled = false;
+        document.querySelector(`.${tileArr[i]}`).classList.add(positionArr[i]);
+    }
+    return tileArr;
 }
 
-function findTiles(x,y) {
-    console.log(tileArray);
-    let newArray = tileArray.filter(tile => tile.includes(gridArea(x,y-1)));
-
-    // let newArray = tileArray.filter(tile => tile.includes('a'));
-    console.log(newArray);
-    return newArray;
+function colourTiles(type) {
+    for(let i=0; i<type.length; i++) {
+    document.querySelector(`.${type[i]}`).classList.add('coloured');
+    }
 }
-
-function colourTiles(){
-  
-}
-
-console.log(tileArray);
-

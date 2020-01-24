@@ -1,28 +1,72 @@
 html,
 body {
     height: 100vh;
-    width: 100vh;
-    padding: 10px;
+    width: 100vw;
 }
 
 #container {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
-    width: 100vh;
+    width: 80vh;
+    
+}
+
+h3 {
+    width: 100%;
+    text-align: right;
 }
 
 #puzzle-grid {
     display: grid;
     width:min-content;
     height: min-content;
+    padding: 2px;
+    background-color:  rgb(190, 190, 190);
+    border: 4px solid rgb(190, 190, 190);
 }
 
 button {
     height: 80px;
     width: 80px;
+    background-color: white;
     cursor: pointer;
     grid-area: var(--area, auto);
     align-items: center;
+    border: 2px solid rgb(190, 190, 190);
+}
+
+
+
+button:hover {
+    background-color: white;
+}
+
+.above:hover {
+    box-shadow: 0 -2px teal;
+}
+
+.right:hover {
+    box-shadow: 2px 0 teal;
+}
+
+.below:hover {
+    box-shadow: 0 2px teal;
+}
+
+.left:hover {
+    box-shadow: -2px 0 teal;
+}
+
+button:disabled {
+    cursor: auto;
+}
+
+.coloured {
+    background-color: black;
+}
+
+.coloured:hover {
+    background-color: black;
 }
