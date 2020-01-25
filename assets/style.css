@@ -158,6 +158,10 @@ nav>footer {
     h3 {font-size: 60px;}
     h2 {font-size: 40px;}
     h4 {font-size: 30px;}
+    header>svg {
+        height: 128px;
+        width: 128px;
+    }
 }
 
 @media only screen and (min-width: 992px) {
@@ -168,6 +172,10 @@ nav>footer {
     h3 {font-size: large;}
     h2 {font-size: 28px;}
     h4 {font-size: 28px;}
+    header>svg {
+        height: 64px;
+        width: 64px;
+    }
 }
 
 @media only screen and (min-width: 1200px) {
