@@ -1,3 +1,10 @@
+* {
+    text-decoration: none;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
 :root {
     --background: rgb(214, 214, 214);
     --page: white;
@@ -7,29 +14,6 @@
     --width: 60vmin;
 }
 
-@media only screen and (min-width: 768px) {
-    :root {
-        --width: 85vmin;
-    }
-    h3 {font-size: 80px;}
-}
-
-@media only screen and (min-width: 992px) {
-    :root {
-        --width: 60vmin;
-        
-    }
-    h3 {font-size: large;}
-}
-
-@media only screen and (min-width: 1200px) {
-    :root {
-        --width: 60vmin;
-    }
-
-    h3 {font-size: large;}
-}
-
 html,
 body {
     height: 100vh;
@@ -37,22 +21,21 @@ body {
     font-family: 'Roboto', sans-serif;
 }
 
-#page-container {
-    width: 100vw;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-}
-
 header {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     width: 100vw;
     background-color: var(--background);
-    height: 6vh;
-    margin-bottom: 3vh;
+}
+
+header > svg {
+    margin: 0 50px;
+    fill: var(--highlight);
+}
+
+svg:hover {
+    fill: var(--page);
 }
 
 #container {
@@ -61,7 +44,7 @@ header {
     justify-content: space-between;
     align-items: center;
     width: 100vw;
-    height: 80vh;
+    height: 100vh;
 }
 
 #buttons-container {
@@ -95,21 +78,10 @@ button:active {
     background: var(--highlight);
 }
 
-.above:hover {
-    box-shadow: 0 -2px var(--highlight);
-}
-
-.right:hover {
-    box-shadow: 2px 0 var(--highlight);
-}
-
-.below:hover {
-    box-shadow: 0 2px var(--highlight);
-}
-
-.left:hover {
-    box-shadow: -2px 0 var(--highlight);
-}
+.above:hover {box-shadow: 0 -2px var(--highlight);}
+.right:hover {box-shadow: 2px 0 var(--highlight);}
+.below:hover {box-shadow: 0 2px var(--highlight);}
+.left:hover {box-shadow: -2px 0 var(--highlight);}
 
 button:disabled {
     cursor: auto;
@@ -123,7 +95,82 @@ button:disabled {
     background-color: var(--primary);
 }
 
-#buttons-container>* {
-    width: calc(var(--width)/6);
-    height: calc(var(--width)/12);
+nav {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 100vh;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    background-color: var(--highlight);
+    overflow: hidden;
+    transition: 0.5s;
+}
+
+nav>header {
+    margin-top: 2vh;
+    background-color: var(--highlight);
+}
+
+nav>footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--background);
+    color: var(--highlight);
+    width: 100%;
+    text-align: center;
+    height: 6vh;
+}
+
+#close-menu {
+    fill: var(--page);
+    transition: 0.3s;
+}
+
+#close-menu:hover {
+    transform: rotate(90deg);
+}
+
+.grid-selector {
+    background: none;
+    border: none;
+}
+
+.grid-selector>h4 {
+    color: var(--page);
+    font-size: xx-large;
+}
+
+@media only screen and (min-width: 768px) {
+    :root {
+        --width: 85vmin;
+    }
+    h3 {font-size: 60px;}
+    h2 {font-size: 40px;}
+    h4 {font-size: 30px;}
+}
+
+@media only screen and (min-width: 992px) {
+    :root {
+        --width: 60vmin;
+        
+    }
+    h3 {font-size: large;}
+    h2 {font-size: 28px;}
+    h4 {font-size: 28px;}
+}
+
+@media only screen and (min-width: 1200px) {
+    :root {
+        --width: 60vmin;
+    }
+
+    h3 {font-size: large;}
+    h2 {font-size: 28px;}
+    h4 {font-size: 28px;}
 }

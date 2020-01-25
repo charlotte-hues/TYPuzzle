@@ -10,23 +10,225 @@
 </head>
 
 <body> 
-    
-<div id="page-container">
+
+<nav>
     <header>
+    <svg  id="close-menu" width="64" height="64" viewBox="0 0 32 32"xmlns="http://www.w3.org/2000/svg">
+            <path d="M15 15H17V17H15V15Z"/>
+            <path d="M23 7H25V9H23V7Z"/>
+            <path d="M23 23H25V25H23V23Z"/>
+            <path d="M11 19H13V21H11V19Z"/>
+            <path d="M11 11H13V13H11V11Z"/>
+            <path d="M7 7H9V9H7V7Z"/>
+            <path d="M7 23H9V25H7V23Z"/>
+            <path d="M19 19H21V21H19V19Z"/>
+            <path d="M19 11H21V13H19V11Z"/>
+    </svg>           
+    </header>
+    <div id="square-buttons-container">
+            <button id="eight" class="grid-selector">
+                <svg width="256" height="192" viewBox="0 0 256 192" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="56.5" y="24.5" width="15" height="15" stroke="white"/>
+                    <rect x="88.5" y="24.5" width="15" height="15" stroke="white"/>
+                    <rect x="120.5" y="24.5" width="15" height="15" stroke="white"/>
+                    <rect x="152.5" y="24.5" width="15" height="15" stroke="white"/>
+                    <rect x="184.5" y="24.5" width="15" height="15" stroke="white"/>
+                    <rect x="56.5" y="56.5" width="15" height="15" stroke="white"/>
+                    <rect x="88" y="56" width="16" height="16" fill="white"/>
+                    <rect x="120" y="56" width="16" height="16" fill="white"/>
+                    <rect x="152" y="56" width="16" height="16" fill="white"/>
+                    <rect x="184.5" y="56.5" width="15" height="15" stroke="white"/>
+                    <rect x="56.5" y="88.5" width="15" height="15" stroke="white"/>
+                    <rect x="88" y="88" width="16" height="16" fill="white"/>
+                    <rect x="120.5" y="88.5" width="15" height="15" stroke="white"/>
+                    <rect x="152" y="88" width="16" height="16" fill="white"/>
+                    <rect x="184.5" y="88.5" width="15" height="15" stroke="white"/>
+                    <rect x="56.5" y="120.5" width="15" height="15" stroke="white"/>
+                    <rect x="88" y="120" width="16" height="16" fill="white"/>
+                    <rect x="120" y="120" width="16" height="16" fill="white"/>
+                    <rect x="152" y="120" width="16" height="16" fill="white"/>
+                    <rect x="184.5" y="120.5" width="15" height="15" stroke="white"/>
+                    <rect x="56.5" y="152.5" width="15" height="15" stroke="white"/>
+                    <rect x="88.5" y="152.5" width="15" height="15" stroke="white"/>
+                    <rect x="120.5" y="152.5" width="15" height="15" stroke="white"/>
+                    <rect x="152.5" y="152.5" width="15" height="15" stroke="white"/>
+                    <rect x="184.5" y="152.5" width="15" height="15" stroke="white"/>
+                </svg>                         
+                <h4>EIGHT</h4>
+            </button>
+            <button id="nine" class="grid-selector">
+                <svg width="256" height="192" viewBox="0 0 256 192" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="56.5" y="24.5" width="15" height="15" stroke="white"/>
+                    <rect x="88.5" y="24.5" width="15" height="15" stroke="white"/>
+                    <rect x="120.5" y="24.5" width="15" height="15" stroke="white"/>
+                    <rect x="152.5" y="24.5" width="15" height="15" stroke="white"/>
+                    <rect x="184.5" y="24.5" width="15" height="15" stroke="white"/>
+                    <rect x="56.5" y="56.5" width="15" height="15" stroke="white"/>
+                    <rect x="88" y="56" width="16" height="16" fill="white"/>
+                    <rect x="120" y="56" width="16" height="16" fill="white"/>
+                    <rect x="152" y="56" width="16" height="16" fill="white"/>
+                    <rect x="184.5" y="56.5" width="15" height="15" stroke="white"/>
+                    <rect x="56.5" y="88.5" width="15" height="15" stroke="white"/>
+                    <rect x="88" y="88" width="16" height="16" fill="white"/>
+                    <rect x="120" y="88" width="16" height="16" fill="white"/>
+                    <rect x="152" y="88" width="16" height="16" fill="white"/>
+                    <rect x="184.5" y="88.5" width="15" height="15" stroke="white"/>
+                    <rect x="56.5" y="120.5" width="15" height="15" stroke="white"/>
+                    <rect x="88" y="120" width="16" height="16" fill="white"/>
+                    <rect x="120" y="120" width="16" height="16" fill="white"/>
+                    <rect x="152" y="120" width="16" height="16" fill="white"/>
+                    <rect x="184.5" y="120.5" width="15" height="15" stroke="white"/>
+                    <rect x="56.5" y="152.5" width="15" height="15" stroke="white"/>
+                    <rect x="88.5" y="152.5" width="15" height="15" stroke="white"/>
+                    <rect x="120.5" y="152.5" width="15" height="15" stroke="white"/>
+                    <rect x="152.5" y="152.5" width="15" height="15" stroke="white"/>
+                    <rect x="184.5" y="152.5" width="15" height="15" stroke="white"/>
+                </svg>                                               
+                <h4>NINE</h4>
+            </button>
+            <button id="ten" class="grid-selector">
+                <svg width="256" height="192" viewBox="0 0 256 192" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="56.5" y="24.5" width="15" height="15" stroke="white"/>
+                    <rect x="88.5" y="24.5" width="15" height="15" stroke="white"/>
+                    <rect x="120.5" y="24.5" width="15" height="15" stroke="white"/>
+                    <rect x="152.5" y="24.5" width="15" height="15" stroke="white"/>
+                    <rect x="184.5" y="24.5" width="15" height="15" stroke="white"/>
+                    <rect x="56.5" y="56.5" width="15" height="15" stroke="white"/>
+                    <rect x="88" y="56" width="16" height="16" fill="white"/>
+                    <rect x="120" y="56" width="16" height="16" fill="white"/>
+                    <rect x="152" y="56" width="16" height="16" fill="white"/>
+                    <rect x="184.5" y="56.5" width="15" height="15" stroke="white"/>
+                    <rect x="56" y="88" width="16" height="16" fill="white"/>
+                    <rect x="88" y="88" width="16" height="16" fill="white"/>
+                    <rect x="120.5" y="88.5" width="15" height="15" stroke="white"/>
+                    <rect x="152" y="88" width="16" height="16" fill="white"/>
+                    <rect x="184" y="88" width="16" height="16" fill="white"/>
+                    <rect x="56.5" y="120.5" width="15" height="15" stroke="white"/>
+                    <rect x="88" y="120" width="16" height="16" fill="white"/>
+                    <rect x="120" y="120" width="16" height="16" fill="white"/>
+                    <rect x="152" y="120" width="16" height="16" fill="white"/>
+                    <rect x="184.5" y="120.5" width="15" height="15" stroke="white"/>
+                    <rect x="56.5" y="152.5" width="15" height="15" stroke="white"/>
+                    <rect x="88.5" y="152.5" width="15" height="15" stroke="white"/>
+                    <rect x="120.5" y="152.5" width="15" height="15" stroke="white"/>
+                    <rect x="152.5" y="152.5" width="15" height="15" stroke="white"/>
+                    <rect x="184.5" y="152.5" width="15" height="15" stroke="white"/>
+                </svg>                                          
+                <h4>TEN</h4>
+            </button>
+    </div>
+    <button id="typo" class="grid-selector">
+        <svg width="256" height="304" viewBox="0 0 256 304" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="56.5" y="112.363" width="15" height="14.9804" stroke="white"/>
+            <rect x="24.5" y="112.363" width="15" height="14.9804" stroke="white"/>
+            <rect x="88.5" y="112.363" width="15" height="14.9804" stroke="white"/>
+            <rect x="120" y="111.863" width="16" height="15.9804" fill="white"/>
+            <rect x="152.5" y="112.363" width="15" height="14.9804" stroke="white"/>
+            <rect x="184.5" y="112.363" width="15" height="14.9804" stroke="white"/>
+            <rect x="216.5" y="112.363" width="15" height="14.9804" stroke="white"/>
+            <rect x="24.5" y="144.324" width="15" height="14.9804" stroke="white"/>
+            <rect x="216.5" y="144.324" width="15" height="14.9804" stroke="white"/>
+            <rect x="24.5" y="176.285" width="15" height="14.9804" stroke="white"/>
+            <rect x="216.5" y="176.285" width="15" height="14.9804" stroke="white"/>
+            <rect x="24" y="207.745" width="16" height="15.9804" fill="white"/>
+            <rect x="216" y="207.745" width="16" height="15.9804" fill="white"/>
+            <rect x="24.5" y="240.206" width="15" height="14.9804" stroke="white"/>
+            <rect x="216.5" y="240.206" width="15" height="14.9804" stroke="white"/>
+            <rect x="56.5" y="144.324" width="15" height="14.9804" stroke="white"/>
+            <rect x="88.5" y="144.324" width="15" height="14.9804" stroke="white"/>
+            <rect x="120" y="143.824" width="16" height="15.9804" fill="white"/>
+            <rect x="152.5" y="144.324" width="15" height="14.9804" stroke="white"/>
+            <rect x="184.5" y="144.324" width="15" height="14.9804" stroke="white"/>
+            <rect x="56.5" y="176.285" width="15" height="14.9804" stroke="white"/>
+            <rect x="88.5" y="176.285" width="15" height="14.9804" stroke="white"/>
+            <rect x="120.5" y="176.285" width="15" height="14.9804" stroke="white"/>
+            <rect x="152.5" y="176.285" width="15" height="14.9804" stroke="white"/>
+            <rect x="184.5" y="176.285" width="15" height="14.9804" stroke="white"/>
+            <rect x="56" y="207.745" width="16" height="15.9804" fill="white"/>
+            <rect x="88" y="207.745" width="16" height="15.9804" fill="white"/>
+            <rect x="120" y="207.745" width="16" height="15.9804" fill="white"/>
+            <rect x="152" y="207.745" width="16" height="15.9804" fill="white"/>
+            <rect x="184" y="207.745" width="16" height="15.9804" fill="white"/>
+            <rect x="56.5" y="240.206" width="15" height="14.9804" stroke="white"/>
+            <rect x="88.5" y="240.206" width="15" height="14.9804" stroke="white"/>
+            <rect x="120.5" y="240.206" width="15" height="14.9804" stroke="white"/>
+            <rect x="152.5" y="240.206" width="15" height="14.9804" stroke="white"/>
+            <rect x="184.5" y="240.206" width="15" height="14.9804" stroke="white"/>
+            <rect x="24.5" y="272.167" width="15" height="14.9805" stroke="white"/>
+            <rect x="216.5" y="272.167" width="15" height="14.9805" stroke="white"/>
+            <rect x="56.5" y="272.167" width="15" height="14.9805" stroke="white"/>
+            <rect x="88.5" y="272.167" width="15" height="14.9805" stroke="white"/>
+            <rect x="120.5" y="272.167" width="15" height="14.9805" stroke="white"/>
+            <rect x="152.5" y="272.167" width="15" height="14.9805" stroke="white"/>
+            <rect x="184.5" y="272.167" width="15" height="14.9805" stroke="white"/>
+            <rect x="24.5" y="80.4022" width="15" height="14.9804" stroke="white"/>
+            <rect x="216.5" y="80.4022" width="15" height="14.9804" stroke="white"/>
+            <rect x="56.5" y="80.4022" width="15" height="14.9804" stroke="white"/>
+            <rect x="88.5" y="80.4022" width="15" height="14.9804" stroke="white"/>
+            <rect x="120.5" y="80.4022" width="15" height="14.9804" stroke="white"/>
+            <rect x="152.5" y="80.4022" width="15" height="14.9804" stroke="white"/>
+            <rect x="184.5" y="80.4022" width="15" height="14.9804" stroke="white"/>
+            <rect x="24" y="47.9412" width="16" height="15.9804" fill="white"/>
+            <rect x="216" y="47.9412" width="16" height="15.9804" fill="white"/>
+            <rect x="56" y="47.9412" width="16" height="15.9804" fill="white"/>
+            <rect x="88" y="47.9412" width="16" height="15.9804" fill="white"/>
+            <rect x="120" y="47.9412" width="16" height="15.9804" fill="white"/>
+            <rect x="152" y="47.9412" width="16" height="15.9804" fill="white"/>
+            <rect x="184" y="47.9412" width="16" height="15.9804" fill="white"/>
+            <rect x="24.5" y="16.4803" width="15" height="14.9804" stroke="white"/>
+            <rect x="216.5" y="16.4803" width="15" height="14.9804" stroke="white"/>
+            <rect x="56.5" y="16.4803" width="15" height="14.9804" stroke="white"/>
+            <rect x="88.5" y="16.4803" width="15" height="14.9804" stroke="white"/>
+            <rect x="120.5" y="16.4803" width="15" height="14.9804" stroke="white"/>
+            <rect x="152.5" y="16.4803" width="15" height="14.9804" stroke="white"/>
+            <rect x="184.5" y="16.4803" width="15" height="14.9804" stroke="white"/>
+        </svg>  
+        <h4>TYPO</h4>
+    </button>
+    <footer><h4>About the Project</h4></footer>
+</nav>
+
+<div id="container"> 
+    <header>
+        <svg  id="menu" width="64" height="64" viewBox="0 0 32 32"xmlns="http://www.w3.org/2000/svg">
+            <rect x="15" y="15" width="2" height="2" />
+            <rect x="15" y="19" width="2" height="2" />
+            <rect x="15" y="11" width="2" height="2" />
+            <rect x="15" y="7" width="2" height="2" />
+            <rect x="15" y="23" width="2" height="2" />
+            <rect x="23" y="15" width="2" height="2" />
+            <rect x="23" y="19" width="2" height="2" />
+            <rect x="23" y="11" width="2" height="2" />
+            <rect x="23" y="7" width="2" height="2" />
+            <rect x="23" y="23" width="2" height="2" />
+            <rect x="11" y="15" width="2" height="2" />
+            <rect x="11" y="19" width="2" height="2" />
+            <rect x="11" y="11" width="2" height="2" />
+            <rect x="11" y="7" width="2" height="2" />
+            <rect x="11" y="23" width="2" height="2" />
+            <rect x="7" y="15" width="2" height="2" />
+            <rect x="7" y="19" width="2" height="2" />
+            <rect x="7" y="11" width="2" height="2" />
+            <rect x="7" y="7" width="2" height="2" />
+            <rect x="7" y="23" width="2" height="2" />
+            <rect x="19" y="15" width="2" height="2" />
+            <rect x="19" y="19" width="2" height="2" />
+            <rect x="19" y="11" width="2" height="2" />
+            <rect x="19" y="7" width="2" height="2" />
+            <rect x="19" y="23" width="2" height="2" />
+        </svg>
+                
         <h2>TYPuzzle</h2>
+        <svg id="new" width="64" height="64" viewBox="0 0 32 32"  xmlns="http://www.w3.org/2000/svg">
+            <path d="M26 16C26 16.55 25.55 17 25 17H17V25C17 25.55 16.55 26 16 26C15.45 26 15 25.55 15 25V17H7C6.45 17 6 16.55 6 16C6 15.45 6.45 15 7 15H15V7C15 6.45 15.45 6 16 6C16.55 6 17 6.45 17 7V15H25C25.55 15 26 15.45 26 16Z"/>
+        </svg>
+            
     </header>
 
-    <div id="container">    
-        <article id="puzzle-grid"></article>
-        <h3>0</h3>
-        <div id="buttons-container">
-            <button id="nine">9</button>
-            <button id="ten">10</button>
-            <button id="eleven">11</button>
-            <button id="typo">16</button>
-        </div>        
-    </div>
-
+       
+    <article id="puzzle-grid"></article>
+    <h3>0</h3>
+    <footer>Save and Share (not yet implented)</footer>
 </div>
 
 <script src="assets/script.js"></script>

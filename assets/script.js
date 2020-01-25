@@ -12,7 +12,9 @@ let row = 9;
 let aspectRatio = (column, row) => {return row/column;}
 let moveCount = 0;
 
-const gridButtons = document.querySelectorAll('#buttons-container button');
+const menuButton = document.querySelector('#menu');
+const closeMenuButton = document.querySelector('#close-menu');
+const gridButtons = document.querySelectorAll('.grid-selector');
 gridButtons.forEach(button => button.addEventListener('click', selectPuzzle));
 
 const puzzleGrid = document.querySelector('#puzzle-grid');
@@ -34,6 +36,7 @@ function gridTemplateArea(column, row) {
 }
 
 function selectPuzzle() {
+    closeNav();
     clearGrid();
     if(this.id === 'typo'){
         column = 7;
@@ -58,7 +61,6 @@ function clearGrid() {
 
 function createGrid(column, row) {
     puzzleGrid.style.gridTemplateColumns = `repeat(${column}, 1fr)`;
-    // puzzleGrid.style.gridTemplateRows = `repeat(${row}, 1fr)`;
     puzzleGrid.style.gridTemplateAreas = gridTemplateArea(column, row); 
     createTiles(column, row); 
 }
@@ -129,5 +131,15 @@ function moveTile() {
     unlockTiles(thisTileArea);
 }
 
+function openNav() {
+    document.querySelector('nav').style.width = '100vw';
+}
+
+function closeNav() {
+    document.querySelector('nav').style.width = '0vw';
+}
+
+closeMenuButton.addEventListener('click', closeNav);
+menuButton.addEventListener('click', openNav);
 
 
