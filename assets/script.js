@@ -9,6 +9,7 @@ const patterns = {
 
 let column = 7;
 let row = 9;
+let aspectRatio = (column, row) => {return row/column;}
 let moveCount = 0;
 
 const gridButtons = document.querySelectorAll('#buttons-container button');
@@ -41,6 +42,7 @@ function selectPuzzle() {
         row = 5;
         column = 5;
     }
+    document.documentElement.style.setProperty('--aspectRatio', aspectRatio(column, row));
     createGrid(column, row);
     colourTiles(patterns[`${this.id}`]);
 }
@@ -56,7 +58,7 @@ function clearGrid() {
 
 function createGrid(column, row) {
     puzzleGrid.style.gridTemplateColumns = `repeat(${column}, 1fr)`;
-    puzzleGrid.style.gridTemplateRows = `repeat(${row}, 1fr)`;
+    // puzzleGrid.style.gridTemplateRows = `repeat(${row}, 1fr)`;
     puzzleGrid.style.gridTemplateAreas = gridTemplateArea(column, row); 
     createTiles(column, row); 
 }
