@@ -18,6 +18,9 @@ gridButtons.forEach(button => button.addEventListener('click', selectPuzzle));
 
 const puzzleGrid = document.querySelector('#puzzle-grid');
 const moveCounter = document.querySelector('h3');
+const gridButtons = document.querySelectorAll('#buttons-container button');
+gridButtons.forEach(button => button.addEventListener('click', resizeGrid))
+
 const gridArea = (column, row) => {return rowArr[row-1] + column;}
 createGrid(column,row);
         
