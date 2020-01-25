@@ -11,18 +11,23 @@
     :root {
         --width: 85vmin;
     }
+    h3 {font-size: 80px;}
 }
 
 @media only screen and (min-width: 992px) {
     :root {
         --width: 60vmin;
+        
     }
+    h3 {font-size: large;}
 }
 
 @media only screen and (min-width: 1200px) {
     :root {
         --width: 60vmin;
     }
+
+    h3 {font-size: large;}
 }
 
 html,
@@ -53,9 +58,10 @@ header {
 #container {
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
-    width: 100vw; 
+    width: 100vw;
+    height: 80vh;
 }
 
 #buttons-container {
