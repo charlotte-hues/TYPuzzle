@@ -7,8 +7,6 @@ const patterns = {
     typo: ['b1','b2','b4', 'b3','b5','b6','b7','g1','g2','g3','g4','g5','g6','g7','d4','e4']
 }
 
-let activeSelection = patterns.eight;
-
 let column = 7;
 let row = 9;
 let moveCount = 0;
@@ -18,11 +16,10 @@ gridButtons.forEach(button => button.addEventListener('click', selectPuzzle));
 
 const puzzleGrid = document.querySelector('#puzzle-grid');
 const moveCounter = document.querySelector('h3');
-const gridButtons = document.querySelectorAll('#buttons-container button');
-gridButtons.forEach(button => button.addEventListener('click', resizeGrid))
-
 const gridArea = (column, row) => {return rowArr[row-1] + column;}
+
 createGrid(column,row);
+colourTiles(patterns.typo);
         
 function gridTemplateArea(column, row) {
     let rString = '';
@@ -45,9 +42,12 @@ function selectPuzzle() {
         column = 5;
     }
     createGrid(column, row);
+    colourTiles(patterns[`${this.id}`]);
 }
 
 function clearGrid() {
+    moveCount = 0;
+    moveCounter.innerHTML = moveCount;
     for(let i=0; i<column*row; i++) {
         const myTile = document.querySelector('.tile');
         puzzleGrid.removeChild(myTile);
@@ -74,15 +74,12 @@ function createTiles(column, row) {
             puzzleGrid.append(tile);
         }
     }
-    colourTiles(activeSelection);
     unlockTiles(gridArea(column, row));
 }
 
 function colourTiles(type) {
-    const tiles = document.querySelectorAll('.tile');
-    tiles.forEach(tile => tile.classList.remove('coloured'));
     for(let i=0; i<type.length; i++) {
-    document.querySelector(`.${type[i]}`).classList.add('coloured');
+        document.querySelector(`.${type[i]}`).classList.add('coloured');
     }
 }
 
@@ -92,7 +89,6 @@ function unlockTiles(emptyTile) {
     let emptyRow = emptyTile.slice(0,1);
     let r = rowArr.indexOf(emptyRow) +1;
     let c = parseInt(emptyTile.slice(1,2));
-    console.log(c);
     if(c>1) {
         tileArr.push(gridArea(c-1,r));
         positionArr.push('right')};
@@ -107,7 +103,6 @@ function unlockTiles(emptyTile) {
         positionArr.push('below')};
 
     for(let i=0; i<tileArr.length; i++) {
-        console.log(tileArr[i]);
         document.querySelector(`.${tileArr[i]}`).disabled = false;
         document.querySelector(`.${tileArr[i]}`).classList.add(positionArr[i]);
     }
