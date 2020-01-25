@@ -7,9 +7,9 @@ const patterns = {
     typo: ['b1','b2','b4', 'b3','b5','b6','b7','g1','g2','g3','g4','g5','g6','g7','d4','e4']
 }
 
-let column = 7;
-let row = 9;
-let activePattern = patterns.typo;
+let column = 5;
+let row = 5;
+let activePattern = patterns.eight;
 let aspectRatio = (column, row) => {return row/column;}
 let moveCount = 0;
 
@@ -24,7 +24,7 @@ const moveCounter = document.querySelector('h3');
 const gridArea = (column, row) => {return rowArr[row-1] + column;}
 
 createGrid(column,row);
-colourTiles(patterns.typo);
+colourTiles(activePattern);
         
 function gridTemplateArea(column, row) {
     let rString = '';
