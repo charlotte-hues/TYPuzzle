@@ -32,6 +32,7 @@ header {
 header > svg {
     margin: 0 50px;
     fill: var(--highlight);
+    transition: 0.3s;
 }
 
 svg:hover {
@@ -133,6 +134,10 @@ nav>footer {
 }
 
 #close-menu:hover {
+    transform: rotate(90deg);
+}
+
+#new:hover {
     transform: rotate(90deg);
 }
 

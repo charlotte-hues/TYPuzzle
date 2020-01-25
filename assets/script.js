@@ -9,9 +9,11 @@ const patterns = {
 
 let column = 7;
 let row = 9;
+let activePattern = patterns.typo;
 let aspectRatio = (column, row) => {return row/column;}
 let moveCount = 0;
 
+const newButton = document.querySelector('#new');
 const menuButton = document.querySelector('#menu');
 const closeMenuButton = document.querySelector('#close-menu');
 const gridButtons = document.querySelectorAll('.grid-selector');
@@ -45,9 +47,10 @@ function selectPuzzle() {
         row = 5;
         column = 5;
     }
+    activePattern = patterns[`${this.id}`];
     document.documentElement.style.setProperty('--aspectRatio', aspectRatio(column, row));
     createGrid(column, row);
-    colourTiles(patterns[`${this.id}`]);
+    colourTiles(activePattern);
 }
 
 function clearGrid() {
@@ -139,6 +142,11 @@ function closeNav() {
     document.querySelector('nav').style.width = '0vw';
 }
 
+newButton.addEventListener('click', () => {
+    clearGrid();
+    createGrid(column,row);
+    colourTiles(activePattern);
+})
 closeMenuButton.addEventListener('click', closeNav);
 menuButton.addEventListener('click', openNav);
 
