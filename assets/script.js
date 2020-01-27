@@ -117,21 +117,30 @@ function unlockTiles(emptyTile) {
 }
 
 function moveTile() { 
+    moveCount++;
+    moveCounter.innerHTML = moveCount;
     const emptyTile = document.querySelector('#puzzle-grid div');
+    let X = emptyTile.getBoundingClientRect().left - this.getBoundingClientRect().left;
+    let Y = emptyTile.getBoundingClientRect().top - this.getBoundingClientRect().top;
+    document.documentElement.style.setProperty('--moveX', `${X}px`);
+    document.documentElement.style.setProperty('--moveY', `${Y}px`);
     const tiles = document.querySelectorAll('.tile');
-    tiles.forEach(tile => {
-        tile.disabled = true;
-        tile.classList.remove('above', 'right', 'left', 'below');
+    tiles.forEach(tiled => {
+        tiled.disabled = true;
+        tiled.classList.remove('above', 'right', 'left', 'below');
     });
     let emptyTileArea = emptyTile.style.getPropertyValue('--area');
     let thisTileArea = this.style.getPropertyValue('--area');
-    this.style.setProperty('--area', emptyTileArea);
-    this.classList.remove(thisTileArea);
-    this.classList.add(emptyTileArea);
-    emptyTile.style.setProperty('--area', thisTileArea);
-    moveCount++;
-    moveCounter.innerHTML = moveCount;
-    unlockTiles(thisTileArea);
+    
+    this.classList.add('move', 'animate');
+    this.addEventListener('transitionend', function() {
+        this.style.setProperty('--area', emptyTileArea);
+        this.classList.remove(thisTileArea);
+        this.classList.add(emptyTileArea);
+        emptyTile.style.setProperty('--area', thisTileArea);
+        this.classList.remove('move', 'animate');
+        unlockTiles(thisTileArea);
+    });   
 }
 
 function openNav() {
