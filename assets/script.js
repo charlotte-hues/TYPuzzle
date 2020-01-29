@@ -1,4 +1,4 @@
-const rowArr = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j']
+// const rowArr = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j']
 const patterns = {
     eight: ['b2','b3','b4','c4','d4','d3','d2','c2'],
     nine: ['b2','b3','b4','c4','d4','d3','d2','c2', 'c3'],
